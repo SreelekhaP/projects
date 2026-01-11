@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreelekha Putta - Aspiring GenAI Engineer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="/videos/bg.mp4" type="video/mp4">
+    </video>
+
+    <nav class="nav glass">
+        <h1>Sreelekha Putta</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content glass">
+            <h2 class="hero-title">Aspiring GenAI Engineer</h2>
+            <p class="hero-subtitle">Skilled in Prompt Engineering, LLMs, NLP & Deep Learning</p>
+            <a href="#projects" class="cta">View My Projects</a>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card glass">
+                <h3>{{ project.name }}</h3>
+                <p>{{ project.desc }}</p>
+                <ul class="skills">
+                    {% for skill in project.skills %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+                <div class="project-links">
+                    <a href="{{ project.live }}" target="_blank" class="btn live">Live Demo</a>
+                    <video controls preload="metadata" class="demo-video">
+                        <source src="/videos/{{ project.video }}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="glass">
+            <h2>Get In Touch</h2>
+            <p>Graduating May 2026 | Final Year B.Tech AI Student<br>Open to Internships & Entry-Level Roles</p>
+            <div class="contact-links">
+                <a href="mailto:sreelekhaputta2@gmail.com" class="contact-btn email">📧 sreelekhaputta2@gmail.com</a>
+                <a href="https://www.linkedin.com/in/sreelekha-putta-61b22b262" target="_blank" class="contact-btn linkedin">💼 LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
